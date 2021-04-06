@@ -20,7 +20,7 @@ boolean gv_temp2 = false;
 
 #define maxhist 24
 float temp2CHist[maxhist];
-float temp2CMin;
-float temp2CMax;
+float temp2CMin = 30;
+float temp2CMax = -20;
 
 MedianFilter<float> medianTemp2C(60);

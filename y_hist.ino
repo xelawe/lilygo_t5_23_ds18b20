@@ -2,6 +2,13 @@ void update_hist() {
 
   if (gv_temp2) {
     temp2CHist[maxhist - 1] = medianTemp2C.AddValue(tempC2);
+
+    if (temp2CHist[maxhist - 1] > temp2CMax) {
+      temp2CMax = temp2CHist[maxhist - 1];
+    }
+    if (temp2CHist[maxhist - 1] < temp2CMin) {
+      temp2CMin = temp2CHist[maxhist - 1];
+    }
   }
 
 }

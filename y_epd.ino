@@ -45,7 +45,7 @@ void disp_value_s(float iv_val, int iv_x, int iv_y, char *iv_unit, boolean iv_va
   //display.setFont(&FreeSansBold12pt7b);
   //display.print(iv_unit);
 
-  display.drawRect(box_x, box_y, box_w / 2, box_h - 15, GxEPD_BLACK);
+  //display.drawRect(box_x, box_y, box_w / 2, box_h - 15, GxEPD_BLACK);
   display.updateWindow(box_x - 1, box_y - 1, box_w / 2 + 2, box_h - 15 + 3, true);
 }
 
@@ -68,7 +68,7 @@ void disp_value(float iv_val, int iv_x, int iv_y, char *iv_unit, boolean iv_vali
   display.setFont(&FreeSansBold12pt7b);
   display.print(iv_unit);
 
-  display.drawRect(box_x, box_y, box_w, box_h, GxEPD_BLACK);
+  //display.drawRect(box_x, box_y, box_w, box_h, GxEPD_BLACK);
   display.updateWindow(box_x - 1, box_y - 1, box_w + 2, box_h + 3, true);
 }
 
