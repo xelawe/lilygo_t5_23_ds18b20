@@ -1,4 +1,3 @@
-
 void init_epd() {
   SPI.begin(EPD_SCLK, EPD_MISO, EPD_MOSI);
 
@@ -15,7 +14,7 @@ void init_epd() {
   display.updateWindow(0, 0, GxEPD_WIDTH, GxEPD_HEIGHT, false);
 
 }
-
+ 
 void disp_vals() {
 
   disp_value( tempC, cursor1_x, cursor1_y, "c", gv_temp1);
