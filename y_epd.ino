@@ -12,7 +12,6 @@ void init_epd() {
   // draw_house(2, 30);
 
   display.updateWindow(0, 0, GxEPD_WIDTH, GxEPD_HEIGHT, false);
-
 }
  
 void disp_vals() {
