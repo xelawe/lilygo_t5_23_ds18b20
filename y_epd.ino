@@ -10,7 +10,7 @@ void init_epd() {
   display.setRotation(1);
   display.update();
 
-  draw_house(2, 30);
+  // draw_house(2, 30);
 
   display.updateWindow(0, 0, GxEPD_WIDTH, GxEPD_HEIGHT, false);
 
@@ -23,6 +23,32 @@ void disp_vals() {
 
   disp_value( humid, cursor3_x, cursor3_y, "%", gv_bme280);
 
+  disp_value_s( temp2CMin, cursor2_x, cursor2_y + 35, "c", gv_temp2);
+  disp_value_s( temp2CMax, cursor2_x + (box_w / 2), cursor2_y + 35 , "c", gv_temp2);
+
+}
+
+void disp_value_s(float iv_val, int iv_x, int iv_y, char *iv_unit, boolean iv_valid) {
+
+  uint16_t box_x = iv_x - 2;
+  uint16_t box_y = iv_y - ( box_h - 15) + 7;
+
+  display.fillRect(box_x, box_y, box_w / 2, box_h - 15, GxEPD_WHITE);
+  display.setTextColor(GxEPD_BLACK);
+  display.setFont(&FreeSansBold9pt7b);
+  display.setCursor(iv_x, iv_y);
+
+  if (iv_valid) {
+    dtostrf(iv_val, 3, 1, outstr);
+    display.print(outstr);
+  } else {
+    display.print("-XX.X");
+  }
+  //display.setFont(&FreeSansBold12pt7b);
+  //display.print(iv_unit);
+
+  display.drawRect(box_x, box_y, box_w / 2, box_h - 15, GxEPD_BLACK);
+  display.updateWindow(box_x - 1, box_y - 1, box_w / 2 + 2, box_h - 15 + 3, true);
 }
 
 void disp_value(float iv_val, int iv_x, int iv_y, char *iv_unit, boolean iv_valid) {
@@ -39,12 +65,12 @@ void disp_value(float iv_val, int iv_x, int iv_y, char *iv_unit, boolean iv_vali
     dtostrf(iv_val, 3, 1, outstr);
     display.print(outstr);
   } else {
-    display.print("---");
+    display.print("-XX.X");
   }
   display.setFont(&FreeSansBold12pt7b);
   display.print(iv_unit);
 
-  //display.drawRect(box_x, box_y, box_w, box_h, GxEPD_BLACK);
+  display.drawRect(box_x, box_y, box_w, box_h, GxEPD_BLACK);
   display.updateWindow(box_x - 1, box_y - 1, box_w + 2, box_h + 3, true);
 }
 

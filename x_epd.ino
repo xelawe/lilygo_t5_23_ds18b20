@@ -18,6 +18,7 @@
 //#include <Fonts/FreeMonoBold12pt7b.h>
 //#include <Fonts/FreeMonoBold18pt7b.h>
 //#include <Fonts/FreeMonoBold24pt7b.h>
+#include <Fonts/FreeSansBold9pt7b.h>
 #include <Fonts/FreeSansBold12pt7b.h>
 #include <Fonts/FreeSansBold18pt7b.h>
 //#include <Fonts/FreeSansBold24pt7b.h>
@@ -31,22 +32,16 @@ GxEPD_Class display(io, EPD_RSET, EPD_BUSY);
 uint16_t box_w = 115;
 uint16_t box_h = 40;
 
-//uint16_t cursor1_x = 125;
-//uint16_t cursor1_y = 40;
-//
-//uint16_t cursor2_x = cursor1_x;
-//uint16_t cursor2_y = cursor1_y + box_h + 5;
-
 uint16_t cursor1_x = 6;
-uint16_t cursor1_y = 70;
+uint16_t cursor1_y = 30;
 
-uint16_t cursor2_x = cursor1_x + box_w + 16;
-uint16_t cursor2_y = cursor1_y - box_h;
+uint16_t cursor2_x = cursor1_x;
+uint16_t cursor2_y = cursor1_y + box_h + 10;
 
-uint16_t cursor3_x = cursor1_x;
-uint16_t cursor3_y = cursor1_y + box_h;
+uint16_t cursor3_x = cursor1_x + box_w + 16;
+uint16_t cursor3_y = cursor1_y;
 
-uint16_t cursorh_x = cursor1_x + box_w + 16;
-uint16_t cursorh_y = cursor1_y + box_h + 10;
+uint16_t cursorh_x = cursor3_x;
+uint16_t cursorh_y = cursor3_y + box_h + 50;
 
 static char outstr[15];

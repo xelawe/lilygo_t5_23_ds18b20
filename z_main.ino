@@ -32,7 +32,6 @@ void loop()
 
     update_hist();
 
-
     if (hour_tick) {
       shift_hist();
 
