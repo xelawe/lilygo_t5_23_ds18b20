@@ -28,9 +28,9 @@ void loop()
 
     check_bme280();
 
-    disp_vals();
-
     update_hist();
+
+    disp_vals();
 
     if (hour_tick) {
       shift_hist();

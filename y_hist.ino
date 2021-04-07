@@ -21,11 +21,14 @@ void shift_hist() {
 
   for (int i = 0; i < maxhist - 1; i++) {
     temp2CHist[i] = temp2CHist[i + 1];
-    if (temp2CHist[i] > temp2CMax) {
-      temp2CMax = temp2CHist[i];
-    }
-    if (temp2CHist[i] < temp2CMin) {
-      temp2CMin = temp2CHist[i];
+
+    if ( temp2CHist[i] != 255) {
+      if (temp2CHist[i] > temp2CMax) {
+        temp2CMax = temp2CHist[i];
+      }
+      if (temp2CHist[i] < temp2CMin) {
+        temp2CMin = temp2CHist[i];
+      }
     }
   }
 
@@ -36,6 +39,6 @@ void shift_hist() {
 void init_hist() {
 
   for (int i = 0; i < maxhist; i++) {
-    temp2CHist[i] = 0;
+    temp2CHist[i] = 255;
   }
 }

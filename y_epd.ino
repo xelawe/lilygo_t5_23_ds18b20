@@ -13,7 +13,7 @@ void init_epd() {
 
   display.updateWindow(0, 0, GxEPD_WIDTH, GxEPD_HEIGHT, false);
 }
- 
+
 void disp_vals() {
 
   disp_value( tempC, cursor1_x, cursor1_y, "c", gv_temp1);
@@ -85,19 +85,11 @@ void draw_house(int iv_x, int iv_y) {
 }
 
 void draw_hist() {
+  int x;
+  int y;
 
   display.fillRect(cursorh_x, cursorh_y - (box_h * 2), 25 * 4, (box_h * 2), GxEPD_WHITE);
 
-  int x = cursorh_x;
-  int y = cursorh_y - map(temp2CHist[0], -20, 30, 0, box_h * 2);
-
-  for (int i = 1; i < maxhist; i++) {
-    int y1 = cursorh_y - map(temp2CHist[i], -20, 30, 0, box_h * 2);
-    display.drawLine(x, y, x + 4, y1, GxEPD_BLACK);
-
-    x = x + 4;
-    y = y1;
-  }
 
   // Draw Zero dashed Line
   x = cursorh_x;
@@ -107,6 +99,31 @@ void draw_hist() {
     display.drawLine(x + 2, y, x + 4, y, GxEPD_WHITE);
     x = x + 4;
   }
+
+  // Draw Values
+  x = cursorh_x;
+  float lv_val1 = temp2CHist[0];
+  if ( lv_val1 = 255) {
+    lv_val1 = 0;
+  }
+  y = cursorh_y - map(lv_val1, -20, 30, 0, box_h * 2);
+
+  for (int i = 1; i < maxhist; i++) {
+    float lv_val = temp2CHist[i];
+    if ( lv_val = 255) {
+      lv_val = 0;
+    }
+
+
+
+    int y1 = cursorh_y - map(lv_val, -20, 30, 0, box_h * 2);
+    display.drawLine(x, y, x + 4, y1, GxEPD_BLACK);
+
+    x = x + 4;
+    y = y1;
+  }
+
+
 
   display.drawRect(cursorh_x, cursorh_y - (box_h * 2), 25 * 4, box_h * 2,  GxEPD_BLACK);
   display.updateWindow(cursorh_x - 1, cursorh_y - (box_h * 2) - 1, (25 * 4) + 2, ( box_h * 2 ) + 3, true);
