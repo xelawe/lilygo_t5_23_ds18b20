@@ -9,7 +9,7 @@
 #include <boards.h>
 #include <GxEPD.h>
 
-#include <GxDEPG0213BN/GxDEPG0213BN.h>    // 2.13"  b/w  212*104  form DKE GROUP
+#include <GxDEPG0213BN/GxDEPG0213BN.h>    // 2.13"  b/w  250*122  form DKE GROUP
 
 #include GxEPD_BitmapExamples
 

@@ -30,7 +30,7 @@ void loop()
 
     update_hist();
 
-    disp_vals();
+
 
     if (hour_tick) {
       shift_hist();
@@ -38,7 +38,8 @@ void loop()
       hour_tick = false;
     }
 
-    draw_hist();
+    disp_vals();
+
     min_tick = false;
   }
 
