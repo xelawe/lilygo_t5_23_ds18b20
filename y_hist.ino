@@ -1,13 +1,17 @@
 void update_hist() {
 
-  if (gv_temp2) {
-    temp2CHist[maxhist - 1] = medianTemp2C.AddValue(tempC2);
+  int hist_ix = maxhist - 1;
 
-    if (temp2CHist[maxhist - 1] > temp2CMax) {
-      temp2CMax = temp2CHist[maxhist - 1];
+  if (gv_temp2) {
+    temp2CHist[hist_ix] = medianTemp2C.AddValue(tempC2);
+
+    if (temp2CHist[hist_ix] > temp2CMax) {
+      temp2CMax = temp2CHist[hist_ix];
+      temp2CMaxIx = hist_ix;
     }
-    if (temp2CHist[maxhist - 1] < temp2CMin) {
-      temp2CMin = temp2CHist[maxhist - 1];
+    if (temp2CHist[hist_ix] < temp2CMin) {
+      temp2CMin = temp2CHist[hist_ix];
+      temp2CMinIx = hist_ix;
     }
   }
 
@@ -25,9 +29,11 @@ void shift_hist() {
     if ( temp2CHist[i] != 255) {
       if (temp2CHist[i] > temp2CMax) {
         temp2CMax = temp2CHist[i];
+        temp2CMaxIx = i;
       }
       if (temp2CHist[i] < temp2CMin) {
         temp2CMin = temp2CHist[i];
+        temp2CMinIx = i;
       }
     }
   }

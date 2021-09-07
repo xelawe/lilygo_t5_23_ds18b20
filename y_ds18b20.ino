@@ -9,7 +9,7 @@ void init_ds18b20( ) {
 void check_ds18b20() {
   sensors.requestTemperatures();
   
-  tempC = sensors.getTempCByIndex(0);
+  tempC = sensors.getTempCByIndex(1);
   if (tempC != DEVICE_DISCONNECTED_C)
   {
     //    Serial.print("Temperature for the device 1 (index 0) is: ");
@@ -20,7 +20,7 @@ void check_ds18b20() {
     gv_temp1 = false;
   }
   
-  tempC2 = sensors.getTempCByIndex(1);
+  tempC2 = sensors.getTempCByIndex(0);
   if (tempC2 != DEVICE_DISCONNECTED_C)
   {
     //    Serial.print("Temperature for the device 1 (index 0) is: ");
